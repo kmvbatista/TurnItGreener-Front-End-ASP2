@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kennedy\\source\\repos\\BatteryCollectionViews\\BatteryCollectionSolution\\BatteryCollectionViews\\BatteryCollectionViews.csproj": {}
+    "C:\\Users\\moc\\Desktop\\Turn IT Greener Views\\BatteryCollectionViews\\BatteryCollectionViews.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kennedy\\source\\repos\\BatteryCollectionViews\\BatteryCollectionSolution\\BatteryCollectionViews\\BatteryCollectionViews.csproj": {
+    "C:\\Users\\moc\\Desktop\\Turn IT Greener Views\\BatteryCollectionViews\\BatteryCollectionViews.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kennedy\\source\\repos\\BatteryCollectionViews\\BatteryCollectionSolution\\BatteryCollectionViews\\BatteryCollectionViews.csproj",
+        "projectUniqueName": "C:\\Users\\moc\\Desktop\\Turn IT Greener Views\\BatteryCollectionViews\\BatteryCollectionViews.csproj",
         "projectName": "BatteryCollectionViews",
-        "projectPath": "C:\\Users\\Kennedy\\source\\repos\\BatteryCollectionViews\\BatteryCollectionSolution\\BatteryCollectionViews\\BatteryCollectionViews.csproj",
-        "packagesPath": "C:\\Users\\Kennedy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kennedy\\source\\repos\\BatteryCollectionViews\\BatteryCollectionSolution\\BatteryCollectionViews\\obj\\",
+        "projectPath": "C:\\Users\\moc\\Desktop\\Turn IT Greener Views\\BatteryCollectionViews\\BatteryCollectionViews.csproj",
+        "packagesPath": "C:\\Users\\moc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\moc\\Desktop\\Turn IT Greener Views\\BatteryCollectionViews\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Kennedy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\moc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
