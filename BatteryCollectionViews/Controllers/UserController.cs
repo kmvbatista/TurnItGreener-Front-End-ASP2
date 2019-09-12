@@ -20,5 +20,17 @@ namespace BatteryCollectionViews.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public IActionResult Edit()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Edit(UserViewModel model)
+        {
+            return View();
+        }
     }
 }

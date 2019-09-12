@@ -12,6 +12,27 @@
     <link href="css/login.css" rel="stylesheet">
 </head>
 <body class="text-center">
+    <div class="overlay-scroll-container">
+        <section class="modal">
+            <a href="javascript:void(0);" class="btn-close">✖</a> <section id="signup">
+                <div>
+                    <h2>Login</h2> <p class="lead">Connect with a social network</p> <div class="social-signup">
+                        <a href="/connect/facebook?next=%2F" class="btn-connect-option facebook">
+                            Facebook
+                        </a> <a href="/connect/google?next=%2F" class="btn-connect-option google">
+                            Google
+                        </a>
+                    </div> <form id="login-email" action="/login" method="POST">
+                        <input type="hidden" name="next" value="/"> <p class="lead">Log in with your email address </p> <div class="field"><label for="login-email-name">Email</label> <input id="login-email-name" type="text" name="username" value="" autofocus="autofocus"></div> <div class="field"><label for="login-email-password">Password</label> <input id="login-email-password" type="password" name="password" value=""> <!----></div> <div class="btn-container">
+                            <input type="submit" value="Log in" class="btn left"> <a href="/recover" class="forgot-password">
+                                Forgot Password
+                            </a>
+                        </div>
+                    </form>
+                </div> <!----> <!---->
+            </section>
+        </section>
+    </div>
     <form style="padding-bottom: 100px" class="form-login">
         <h1 class="h2 mb-4 font-weight-normal">Login</h1>
 
@@ -28,17 +49,19 @@
         <p class="mt-5 mb-3 text-muted">&copy; Battery Collection</p>
     </form>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="~/js/login.js"></script>
     <script>
         const handleLogin = async (event) => {
             event.preventDefault()
-            const response = await axios.post("https://localhost:44379/api/token", {
-                email: "kennedy@gmail.com",
-                password: "12345678"
-            });
-            console.log(response);
-            if (response.status == 200) {
-                window.location.href = "/Perfil";
-            }
+            //const response = await axios.post("https://localhost:44379/api/token", {
+            //    email: "kennedy@gmail.com",
+            //    password: "12345678"
+            //});
+            //console.log(response);
+            //if (response.status == 200) {
+            //}
+            window.location.href = "/Perfil";
+            //}
             //se não mostra erro
         }
     </script>

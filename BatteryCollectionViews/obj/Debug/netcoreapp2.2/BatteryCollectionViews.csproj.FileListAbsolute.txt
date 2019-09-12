@@ -156,3 +156,4 @@ C:\Users\moc\Desktop\Turn IT Greener Views\BatteryCollectionViews\obj\Debug\netc
 C:\Users\moc\Desktop\Turn IT Greener Views\BatteryCollectionViews\obj\Debug\netcoreapp2.2\BatteryCollectionViews.dll
 C:\Users\moc\Desktop\Turn IT Greener Views\BatteryCollectionViews\obj\Debug\netcoreapp2.2\BatteryCollectionViews.pdb
 C:\Users\moc\Desktop\Turn IT Greener Views\BatteryCollectionViews\obj\Debug\netcoreapp2.2\BatteryCollectionViews.csproj.CopyComplete
+C:\Users\moc\Desktop\Turn IT Greener Views\BatteryCollectionViews\obj\Debug\netcoreapp2.2\Razor\Views\User\Edit.g.cshtml.cs
