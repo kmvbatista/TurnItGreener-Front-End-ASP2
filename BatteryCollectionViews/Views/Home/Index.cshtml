@@ -3,18 +3,28 @@
     Layout = null;
 }
 
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="utf-8">
     <link rel="icon" href="img/battery logo.png" type="image/x-icon">
-    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">  
     <link href="css/homepage.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a id="battery-link-label" class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Battery Collection</a>
+        <a id="battery-link-label" class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Turn IT Greener</a>
+        <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" asp-action="Index" asp-controller="Login">Entrar</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" asp-action="Create" asp-controller="User">Cadastrar</a>
+            </li>
+        </ul>
     </nav>
 
     <div class="container-fluid">
