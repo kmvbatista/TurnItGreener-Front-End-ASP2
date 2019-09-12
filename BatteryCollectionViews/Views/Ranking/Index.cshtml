@@ -1,0 +1,134 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" alt="Ícone bateria" href="img/battery logo.png" type="image/x-icon">
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="css/homepage.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+        <a id="battery-link-label" class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Battery Collection</a>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="index" asp-controller="home">
+                                <span data-feather="home"></span>
+                                Início<span class="sr-only"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="index" asp-controller="perfil">
+                                <span data-feather="user"></span>
+                                Meu Perfil
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" asp-action="index" asp-controller="ranking">
+                                <span data-feather="bar-chart-2"></span>
+                                Ranking
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <h2 style="padding-top: 20px">Ranking</h2>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Nº</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Pontos</th>
+                                <th scope="col">Baterias/Pilhas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Gabriel Romário da Costa</td>
+                                <td>1000</td>
+                                <td>100</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Mayke Buchholz</td>
+                                <td>900</td>
+                                <td>90</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Kennedy Batista</td>
+                                <td>760</td>
+                                <td>76</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">7</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">8</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">9</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">10</th>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="js/bootstrap/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src="js/homepage.js"></script>
+</body>
+</html>
