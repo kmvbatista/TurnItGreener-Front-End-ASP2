@@ -6,14 +6,13 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Marker Animations</title>
+    <title> Turn IT Greener </title>
+    <link rel="icon" href="img/battery logo.png" type="image/x-icon">
     <style>
-        /* Always set the map height explicitly to define the size of the div
-        * element that contains the map. */
         #map {
             height: 100%;
         }
-        /* Optional: Makes the sample page fill the window. */
+
         html, body {
             height: 100%;
             margin: 0;
@@ -25,33 +24,66 @@
     <div id="map"></div>
     <script>
 
-        // The following example creates a marker in Stockholm, Sweden using a DROP
-        // animation. Clicking on the marker will toggle the animation between a BOUNCE
-        // animation and no animation.
-
         var marker;
 
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 18,
-                center: { lat: -26.913908, lng: -49.069138 }
+                zoom: 14,
+                center: { lat: -26.886795, lng: -49.074723 }
             });
 
             marker = new google.maps.Marker({
                 map: map,
                 draggable: true,
                 animation: google.maps.Animation.DROP,
-                position: { lat: -26.913908, lng: -49.069138 }
+                position: { lat: -26.913908, lng: -49.069138 },
+                label: {
+                    text: "Prefeitura",
+                    color: '#000',
+                    fontSize: '25px'
+                }
             });
-            marker.addListener('click', toggleBounce);
-        }
 
-        function toggleBounce() {
-            if (marker.getAnimation() !== null) {
-                marker.setAnimation(null);
-            } else {
-                marker.setAnimation(google.maps.Animation.BOUNCE);
-            }
+            marker1 = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                position: { lat: -26.863587, lng: -49.090257 },
+                label: {
+                    text: "Atacadão",
+                    color: '#000',
+                    fontSize: '25px'
+                }
+            });
+
+            marker2 = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                position: { lat: -26.867379, lng: -49.061928 },
+                label: {
+                    text: "Galegão",
+                    color: '#000',
+                    fontSize: '25px'
+                }
+            });
+
+            marker3 = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                position: { lat: -26.886647, lng: -49.099737 },
+                label: {
+                    text: "Samae",
+                    color: '#000',
+                    fontSize: '25px'
+                }
+            });
+
+            marker.setDraggable(false);
+            marker1.setDraggable(false);
+            marker2.setDraggable(false);
+            marker3.setDraggable(false);
         }
     </script>
     <script async defer

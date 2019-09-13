@@ -140,7 +140,7 @@
         </div>
     </div>
 
-    <div id="demo" class="carousel slide" data-ride="carousel">
+    @*<div id="demo" class="carousel slide" data-ride="carousel">
         <ul id="carousel-indicators" class="carousel-indicators">
             <li data-target="#demo" data-slide-to="0" class="active"></li>
             <li data-target="#demo" data-slide-to="1"></li>
@@ -175,7 +175,43 @@
         <a id="button-next" class="carousel-control-next" href="#demo" data-slide="next">
             <span class="carousel-control-next-icon"></span>
         </a>
+    </div>*@
+
+    <div id="questions" class="container">
+        <div id="accordion">
+            <div class="card">
+                <div style="color: black" data-toggle="collapse" href="#collapseOne" class="card-header">
+                    <label>Porque as pilhas são prejudiciais ao meio ambiente?</label>
+                </div>
+                <div id="collapseOne" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        As pilhas são compostas de metais pesados e tóxicos, como o mercúrio, chumbo e o cádmio, que quando jogados incorretamente em lixões e aterros comuns podem contaminar o solo e os lençóis freáticos.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div style="color: black" data-toggle="collapse" href="#collapseTwo" class="card-header">
+                    <label>Quais os problemas ambientais que as pilhas podem causar?</label>
+                </div>
+                <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        A contaminação do solo e lençóis freáticos são algumas consequências do descarte incorreto de pilhas e baterias usadas. Algumas dessas, compostas de metais pesados, como o chumbo, mercúrio, níquel e cádmio; são capazes de causar doenças renais, cânceres e problemas relacionados no sistema nervoso central.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div style="color: black" data-toggle="collapse" href="#collapseThree" class="card-header">
+                    <label>Como se deve descartar as pilhas?</label>
+                </div>
+                <div id="collapseThree" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Veja se na embalagem consta que a pilha pode ser descartada no lixo comum. As pilhas do tipo alcalinas não contém metais pesados em sua composição. Já as pilhas comuns, como as recarregáveis, possuem mercúrio, cádmio e chumbo, e devem ser devolvidas ao fabricante.
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
