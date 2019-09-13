@@ -8,21 +8,93 @@
 <head>
     <meta charset="utf-8">
     <link rel="icon" href="img/battery logo.png" type="image/x-icon">
-    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">  
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="css/homepage.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
 </head>
 <body>
+
+    <div class="modal fade" id="loginModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"></h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <section style="padding-top: 10px" class="container">
+                        <form style="padding-bottom: 60px" class="form-login">
+                            <h1 style="bottom: 20px" class="h2 mb-4 font-weight-normal">Login</h1>
+
+                            <label for="inputEmail" class="sr-only">Email</label>
+                            <input style="bottom: 10px" type="email" id="emailLogin" class="form-control" placeholder="Digite seu email" required autofocus>
+
+                            <label for="inputPassword" class="sr-only">Senha</label>
+                            <input style="bottom: 5px" type="password" id="senhaLogin" class="form-control" placeholder="Digite sua senha" required>
+
+                            <button id="botaoEntrar" class="btn btn-lg btn-dark btn-block" onclick="handleLogin(event)" type="button">Entrar</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="cadastrarModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"></h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <section style="padding-top: 10px" class="container">
+                        <form style="padding-bottom: 60px" class="form-login">
+                            <h1 style="bottom: 20px" class="h2 mb-4 font-weight-normal">Cadastrar</h1>
+
+                            <div>
+                                <label>Nome</label>
+                                <input type="text" id="nome" class="form-control" placeholder="" required>
+                                <span id="ErroNome" class="text-danger">a</span>
+                            </div>
+
+                            <div>
+                                <label style="padding-top: 15px">Email</label>
+                                <input type="text" id="email" class="form-control" placeholder="email@email.com" required>
+                                <span id="ErroEmail" class="text-danger">a</span>
+                            </div>
+
+                            <div>
+                                <label style="padding-top: 15px">Senha</label>
+                                <input type="password" id="senha" class="form-control" placeholder="" required>
+                            </div>
+
+                            <div>
+                                <label>Confirmar Senha</label>
+                                <input type="password" id="confirmar-senha" class="form-control" placeholder="" required>
+                            </div>
+
+                            <button id="btnCadastrar" class="btn btn-lg btn-dark btn-block" onclick="" type="submit">Cadastrar</button>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
         <a id="battery-link-label" class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Turn IT Greener</a>
         <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" asp-action="Index" asp-controller="Login">Entrar</a>
+                <a class="nav-link" data-toggle="modal" href="#loginModal">Entrar</a>
             </li>
         </ul>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" asp-action="Create" asp-controller="User">Cadastrar</a>
+                <a class="nav-link" data-toggle="modal" href="#cadastrarModal">Cadastrar</a>
             </li>
         </ul>
     </nav>
@@ -48,6 +120,18 @@
                             <a class="nav-link" asp-action="index" asp-controller="ranking">
                                 <span data-feather="bar-chart-2"></span>
                                 Ranking
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="index" asp-controller="map">
+                                <span data-feather="map"></span>
+                                Lugares para descarte
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-action="#" asp-controller="#">
+                                <span data-feather="settings"></span>
+                                Configurações
                             </a>
                         </li>
                     </ul>
@@ -98,5 +182,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <script src="js/homepage.js"></script>
+    <script src="~/js/cadastro.js"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="~/js/bootstrap/bootstrap.min.js"></script>
+    <script src="~/js/login.js"></script>
+    <script>
+        const handleLogin = async (event) => {
+            event.preventDefault()
+            //const response = await axios.post("https://localhost:44379/api/token", {
+            //    email: "kennedy@gmail.com",
+            //    password: "12345678"
+            //});
+            //console.log(response);
+            //if (response.status == 200) {
+            //}
+            window.location.href = "/Perfil";
+            //}
+            //se não mostra erro
+        }
+    </script>
 </body>
 </html>
