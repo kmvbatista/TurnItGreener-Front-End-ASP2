@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BatteryCollectionViews.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
         [HttpGet]
         public IActionResult Create()

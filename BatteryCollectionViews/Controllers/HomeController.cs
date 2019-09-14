@@ -8,7 +8,7 @@ using BatteryCollectionViews.Models;
 
 namespace BatteryCollectionViews.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         [HttpGet]
         public IActionResult Index()
