@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc.Cors.Internal;
+using BatteryCollectionViews.Cookies;
 
 namespace BatteryCollectionViews
 {
@@ -43,7 +44,15 @@ namespace BatteryCollectionViews
                 });
             });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<ICookie, Cookie>();
+            services.AddHttpClient();
+            services.AddHttpClient("turnItgreener", c =>
+            {
+                c.BaseAddress = new Uri("https://batterycollector.azurewebsites.net/");
+                c.DefaultRequestHeaders.Add("Content-Type", "application/json");
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
