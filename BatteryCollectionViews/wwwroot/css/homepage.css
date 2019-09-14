@@ -120,7 +120,7 @@ body {
     box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
   }
 
-.carousel-inner img {
+/*.carousel-inner img {
     width: 100%;
 }
 
@@ -146,4 +146,4 @@ body {
 
 #button-next {
     right: 60px;
-}
+}*/

@@ -1,0 +1,93 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title> Turn IT Greener </title>
+    <link rel="icon" href="img/battery logo.png" type="image/x-icon">
+    <style>
+        #map {
+            height: 100%;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+
+        var marker;
+
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 14,
+                center: { lat: -26.886795, lng: -49.074723 }
+            });
+
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                position: { lat: -26.913908, lng: -49.069138 },
+                label: {
+                    text: "Prefeitura",
+                    color: '#000',
+                    fontSize: '25px'
+                }
+            });
+
+            marker1 = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                position: { lat: -26.863587, lng: -49.090257 },
+                label: {
+                    text: "Atacadão",
+                    color: '#000',
+                    fontSize: '25px'
+                }
+            });
+
+            marker2 = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                position: { lat: -26.867379, lng: -49.061928 },
+                label: {
+                    text: "Galegão",
+                    color: '#000',
+                    fontSize: '25px'
+                }
+            });
+
+            marker3 = new google.maps.Marker({
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                position: { lat: -26.886647, lng: -49.099737 },
+                label: {
+                    text: "Samae",
+                    color: '#000',
+                    fontSize: '25px'
+                }
+            });
+
+            marker.setDraggable(false);
+            marker1.setDraggable(false);
+            marker2.setDraggable(false);
+            marker3.setDraggable(false);
+        }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3wA5Sjsuv-acrwFO5wG71UODgpJ5d0wY&callback=initMap">
+    </script>
+</body>
+</html>
