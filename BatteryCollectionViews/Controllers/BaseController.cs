@@ -19,11 +19,11 @@ namespace BatteryCollectionViews.Controllers
         //Antes de executar qualquer método do controller
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if (string.IsNullOrWhiteSpace(cookie.GetCookie()))
-            {
-                filterContext.Result = new RedirectResult(Url.Action("Index", "Login"));
-            }
-            base.OnActionExecuting(filterContext);
+            //if (string.IsNullOrWhiteSpace(cookie.GetCookie()))
+            //{
+            //    filterContext.Result = new RedirectResult(Url.Action("Index", "Login"));
+            //}
+            //base.OnActionExecuting(filterContext);
         }
     }
 }

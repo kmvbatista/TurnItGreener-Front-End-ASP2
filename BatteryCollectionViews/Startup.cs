@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc.Cors.Internal;
 using BatteryCollectionViews.Cookies;
+using System.Net.Http.Headers;
 
 namespace BatteryCollectionViews
 {
@@ -50,7 +51,9 @@ namespace BatteryCollectionViews
             services.AddHttpClient("turnItgreener", c =>
             {
                 c.BaseAddress = new Uri("https://batterycollector.azurewebsites.net/");
-                c.DefaultRequestHeaders.Add("Content-Type", "application/json");
+                c.DefaultRequestHeaders
+                          .Accept
+                          .Add(new MediaTypeWithQualityHeaderValue("application/json"));
             });
 
         }
