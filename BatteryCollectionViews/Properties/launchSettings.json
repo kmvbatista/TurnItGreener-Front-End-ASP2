@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iis": {
-      "applicationUrl": "https://localhost/BatteryCollectionViews",
+      "applicationUrl": "http://localhost/BatteryCollectionViews",
       "sslPort": 0
     },
     "iisExpress": {

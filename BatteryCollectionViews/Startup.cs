@@ -46,11 +46,11 @@ namespace BatteryCollectionViews
             });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddTransient<ICookie, Cookie>();
+            services.AddSingleton<ICookie, Cookie>();
             services.AddHttpClient();
             services.AddHttpClient("turnItgreener", c =>
             {
-                c.BaseAddress = new Uri("https://batterycollector.azurewebsites.net/");
+                c.BaseAddress = new Uri("http://localhost:55135/");
                 c.DefaultRequestHeaders
                           .Accept
                           .Add(new MediaTypeWithQualityHeaderValue("application/json"));

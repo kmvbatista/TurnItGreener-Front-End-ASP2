@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net.Http;
 using Newtonsoft.Json;
 using System.Text;
+using BatteryCollectionViews.Cookies;
+using JsonDll = Newtonsoft.Json;
+using BatteryCollectionViews.Models.HttpResponse;
 
 namespace BatteryCollectionViews.Controllers
 {
@@ -22,11 +25,15 @@ namespace BatteryCollectionViews.Controllers
             return View();
         }
 
-        public LoginController(IHttpClientFactory httpClientFactory)
+        public LoginController(IHttpClientFactory httpClientFactory, ICookie cookieManagement)
         {
             this.httpClient = httpClientFactory;
+            this.cookieManagement = cookieManagement;
+
         }
         private readonly IHttpClientFactory httpClient;
+        private readonly ICookie cookieManagement;
+
 
 
         public async Task OnGet()
@@ -49,7 +56,7 @@ namespace BatteryCollectionViews.Controllers
             return BadRequest();
         }
 
-        public async Task<IActionResult> Login()
+        public async Task<String> Login()
         {
             var value = new
             {
@@ -57,13 +64,26 @@ namespace BatteryCollectionViews.Controllers
                 password = "12345678"
             };
             var client = httpClient.CreateClient("turnItgreener");
-            var response = await client.PostAsJsonAsync("api/token", new StringContent(retornaObjetoJSON(), Encoding.UTF8, "application/json"));
-            Console.WriteLine(retornaObjetoJSON().ToString());
-            if (response != null)
+            LoginTeste login = new LoginTeste()
             {
-                return Json(response);
+                Email = "kennedy@gmail.com",
+                Password = "12345678"
+            };
+            HttpResponseMessage response = await client.PostAsJsonAsync<LoginTeste>("api/token", login);
+            string json = response.Content.ReadAsStringAsync().Result;
+            RootObject root = JsonConvert.DeserializeObject<RootObject>(json);
+            User userReturned = root.user;
+
+            //cookieManagement.Set("abc", "123");
+            //User user = JsonDll.JsonConvert.DeserializeObject<User>(json);
+            return cookieManagement.GetCookie();
+                
+
+            if(response != null)
+            {
+                return JsonConvert.SerializeObject(json);
             }
-            return BadRequest();
+            return "Não encontrado";
         }
 
         public string retornaObjetoJSON()
@@ -75,4 +95,11 @@ namespace BatteryCollectionViews.Controllers
             return JsonConvert.SerializeObject(obj);
         }
     }
+    public class LoginTeste
+    {
+        public string Email { get; set; }
+        public string Password { get; set; }
+
+    }
+
 }
