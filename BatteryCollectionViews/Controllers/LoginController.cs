@@ -79,11 +79,11 @@ namespace BatteryCollectionViews.Controllers
             return cookieManagement.GetCookie();
                 
 
-            if(response != null)
-            {
-                return JsonConvert.SerializeObject(json);
-            }
-            return "Não encontrado";
+            //if(response != null)
+            //{
+            //    return JsonConvert.SerializeObject(json);
+            //}
+            //return "Não encontrado";
         }
 
         public string retornaObjetoJSON()
@@ -101,5 +101,4 @@ namespace BatteryCollectionViews.Controllers
         public string Password { get; set; }
 
     }
-
 }

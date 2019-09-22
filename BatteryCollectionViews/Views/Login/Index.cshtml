@@ -1,74 +1,55 @@
-﻿@{
+﻿
+
+@model BatteryCollectionViews.Models.UserViewModel
+
+@{
     Layout = null;
 }
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Battery Collection</title>
+    <meta charset="utf-8">
     <link rel="icon" href="img/battery logo.png" type="image/x-icon">
-    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link href="css/login.css" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Turn IT Greener</title>
+
+    <link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/css/sb-admin.css" rel="stylesheet">
 </head>
-<body class="text-center">
-
-    <section class="container">
-        <button type="button" class="button" data-toggle="modal" data-target="#myModal">
-            Adicionar
-        </button>
-
-        <div class="modal fade" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title"></h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+<body class="bg-dark">
+    <div class="container">
+        <div class="card card-login mx-auto mt-5">
+            <div class="card-header">Login</div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <div class="form-label-group">
+                            <input asp-for="@Model.Email" type="email" id="inputEmail" class="form-control" placeholder="Email" required="required" autofocus="autofocus" />
+                            <label for="inputEmail">Email</label>
+                        </div>
                     </div>
-
-                    <div class="modal-body">
-                        <section style="padding-top: 40px" class="container">
-                            <form style="padding-bottom: 100px" class="form-login" asp-controller="Login" asp-action="Login">
-                                <h1 class="h2 mb-4 font-weight-normal">Login</h1>
-
-                                <label for="inputEmail" class="sr-only">Email</label>
-                                <input type="email" id="email" class="form-control" placeholder="Digite seu email" required autofocus>
-
-                                <label for="inputPassword" class="sr-only">Senha</label>
-                                <input type="password" id="senha" class="form-control" placeholder="Digite sua senha" required>
-
-                                <button id="botaoEntrar" class="btn btn-lg btn-dark btn-block">Entrar</button>
-
-                                @Html.ActionLink("Create Account", "Create", "User")
-
-                                <p class="mt-5 mb-3 text-muted">&copy; Battery Collection</p>
-                            </form>
-                        </section>
+                    <div class="form-group">
+                        <div class="form-label-group">
+                            <input asp-for="@Model.Password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="required" />
+                            <label for="inputPassword">Senha</label>
+                        </div>
                     </div>
+                    <input type="submit" value="Entrar" class="btn btn-dark btn-block" asp-action="index" asp-controller="home" />
+                </form>
+                <div class="text-center">
+                    <a class="d-block small mt-3" asp-action="create" asp-controller="user">Criar Conta</a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="~/js/bootstrap/bootstrap.min.js"></script>
-    <script src="~/js/login.js"></script>
-    <script>
-        const handleLogin = async (event) => {
-            event.preventDefault()
-            //const response = await axios.post("https://localhost:44379/api/token", {
-            //    email: "kennedy@gmail.com",
-            //    password: "12345678"  
-            //});
-            //console.log(response);
-            //if (response.status == 200) {
-            //}
-            window.location.href = "/Perfil";
-            //}
-            //se não mostra erro
-        }
-    </script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 </body>
 </html>

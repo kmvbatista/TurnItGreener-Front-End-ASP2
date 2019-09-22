@@ -1,4 +1,4 @@
-﻿@{
+﻿@{ 
     Layout = null;
 }
 
@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title> Turn IT Greener </title>
+    <title>Turn IT Greener</title>
     <link rel="icon" href="img/battery logo.png" type="image/x-icon">
     <style>
         #map {
@@ -24,8 +24,6 @@
     <div id="map"></div>
     <script>
 
-        var marker;
-
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 14,
@@ -34,56 +32,50 @@
 
             marker = new google.maps.Marker({
                 map: map,
-                draggable: true,
+                draggable: false,
                 animation: google.maps.Animation.DROP,
                 position: { lat: -26.913908, lng: -49.069138 },
-                label: {
-                    text: "Prefeitura",
-                    color: '#000',
-                    fontSize: '25px'
-                }
+                title: "Prefeitura"
             });
 
             marker1 = new google.maps.Marker({
                 map: map,
-                draggable: true,
+                draggable: false,
                 animation: google.maps.Animation.DROP,
                 position: { lat: -26.863587, lng: -49.090257 },
-                label: {
-                    text: "Atacadão",
-                    color: '#000',
-                    fontSize: '25px'
-                }
+                title: "Atacadão"
             });
 
             marker2 = new google.maps.Marker({
                 map: map,
-                draggable: true,
+                draggable: false,
                 animation: google.maps.Animation.DROP,
                 position: { lat: -26.867379, lng: -49.061928 },
-                label: {
-                    text: "Galegão",
-                    color: '#000',
-                    fontSize: '25px'
-                }
+                title: "Galegão"
             });
 
             marker3 = new google.maps.Marker({
                 map: map,
-                draggable: true,
+                draggable: false,
                 animation: google.maps.Animation.DROP,
                 position: { lat: -26.886647, lng: -49.099737 },
-                label: {
-                    text: "Samae",
-                    color: '#000',
-                    fontSize: '25px'
-                }
+                title: "Samae"
             });
 
-            marker.setDraggable(false);
-            marker1.setDraggable(false);
-            marker2.setDraggable(false);
-            marker3.setDraggable(false);
+            var location = google.maps.event.addListener(map, "click", function (event) {
+                var latitude = event.latLng.lat();
+                var longitude = event.latLng.lng();
+                console.log(latitude + ', ' + longitude);
+
+                var marker4 = new google.maps.Marker({
+                    position: location,
+                    map: map
+                });
+            });
+        }
+
+        function placeMarker(location) {
+
         }
     </script>
     <script async defer
