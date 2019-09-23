@@ -31,15 +31,23 @@
                         <div class="form-label-group">
                             <input asp-for="@Model.Email" type="email" id="inputEmail" class="form-control" placeholder="Email" required="required" autofocus="autofocus" />
                             <label for="inputEmail">Email</label>
+                            <span id="errorEmail" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="form-label-group">
                             <input asp-for="@Model.Password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="required" />
                             <label for="inputPassword">Senha</label>
+                            <span id="errorPassword" class="text-danger"></span>
                         </div>
                     </div>
-                    <input type="submit" value="Entrar" class="btn btn-dark btn-block" asp-action="index" asp-controller="home" />
+                    <input id="button" type="submit" value="Entrar" class="btn btn-dark btn-block" asp-action="index" asp-controller="home" />
+                    <style>
+                        form input {
+                            height: 45px;
+                            width: 400px;
+                        }
+                    </style>
                 </form>
                 <div class="text-center">
                     <a class="d-block small mt-3" asp-action="create" asp-controller="user">Criar Conta</a>
@@ -51,5 +59,36 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <script type="text/javascript">
+
+        var button = document.querySelector("#button");
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            validateUser();
+        });
+
+        function validateUser() {
+            var email = $("#inputEmail").val();
+            var password = $("#inputPassword").val();
+
+            // Email
+            if (email === "") {
+                $("#errorEmail").html("Favor, informe o email.");
+            }
+            else {
+                 $("#errorEmail").html("");
+            }
+
+            // Password
+            if (password === "") {
+                $("#errorPassword").html("Favor, informe a senha.");
+            }
+            else {
+                $("#errorPassword").html("");
+            }
+        }
+    </script>
 </body>
 </html>

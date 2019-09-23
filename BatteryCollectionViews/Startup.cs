@@ -46,7 +46,7 @@ namespace BatteryCollectionViews
             });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddSingleton<ICookie, Cookie>();
+            //services.AddSingleton<ICookie, Cookie>();
             services.AddHttpClient();
             services.AddHttpClient("turnItgreener", c =>
             {

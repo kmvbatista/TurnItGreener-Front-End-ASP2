@@ -6,41 +6,33 @@ using System.Web;
 
 namespace BatteryCollectionViews.Cookies
 {
-    public class Cookie : ICookie
+    public class Cookie
     {
         private const string CookieSetting = "Cookie.Duration";
         private const string CookieIsHttp = "Cookie.IsHttp";
         public const string CookieName = "MVCAPP";
-        private readonly IHttpContextAccessor _context;
 
-        public Cookie(IHttpContextAccessor httpContextAccessor)
-        {
-            _context = httpContextAccessor;
-        }
-
-
-        public void Set(string key, string value)
+        public static void Set(string value, HttpContext context)
         {
             var options = new CookieOptions()
             {
                 Expires = DateTime.Now.AddMinutes(30),
                 HttpOnly = true,
             };
-            this._context.HttpContext.Response.Cookies.Append(CookieName, value, options);
+            context.Response.Cookies.Append(CookieName, value, options);
         }
 
-        string ICookie.GetCookie()
+        internal static string GetCookie(HttpContext context)
         {
-            var context = this._context.HttpContext;
             return context.Request.Cookies[CookieName];
         }
 
-        public void Delete(string key)
+        public static void Delete(string key, HttpContext context)
         {
-            this._context.HttpContext.Response.Cookies.Delete(key);
+            context.Response.Cookies.Delete(key);
         }
 
-        public void DeleteAll()
+        public static void DeleteAll()
         {
             throw new NotImplementedException();
         }

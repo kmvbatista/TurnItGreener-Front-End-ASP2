@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BatteryCollectionViews.Cookies;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BatteryCollectionViews.Controllers
 {
-    public class PasswordController : Controller
+    public class PasswordController : BaseController
     {
         [HttpGet]
         public IActionResult Index()
