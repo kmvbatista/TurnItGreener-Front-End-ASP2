@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BatteryCollectionViews.Controllers
 {
-    public class MapController : BaseController
+    public class MapController : Controller
     {
         [HttpGet]
         public IActionResult Index()

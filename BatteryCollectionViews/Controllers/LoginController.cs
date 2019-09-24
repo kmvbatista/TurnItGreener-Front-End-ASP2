@@ -8,11 +8,13 @@ using System.Text;
 using BatteryCollectionViews.Cookies;
 using JsonDll = Newtonsoft.Json;
 using BatteryCollectionViews.Models.HttpResponse;
+using Microsoft.AspNetCore.Http;
 
 namespace BatteryCollectionViews.Controllers
 {
-    public class LoginController : BaseController
+    public class LoginController : Controller
     {
+        public Cookie cookie = new Cookie();
         [HttpGet]
         public IActionResult Index()
         {
@@ -25,16 +27,17 @@ namespace BatteryCollectionViews.Controllers
             return View();
         }
 
-        public LoginController(IHttpClientFactory httpClientFactory, ICookie cookieManagement)
+        public void Create(UserViewModel userViewModel)
+        {
+            var x = 3;
+        }
+
+        public LoginController(IHttpClientFactory httpClientFactory)
         {
             this.httpClient = httpClientFactory;
-            this.cookieManagement = cookieManagement;
 
         }
         private readonly IHttpClientFactory httpClient;
-        private readonly ICookie cookieManagement;
-
-
 
         public async Task OnGet()
         {
@@ -56,7 +59,7 @@ namespace BatteryCollectionViews.Controllers
             return BadRequest();
         }
 
-        public async Task<String> Login()
+        public async Task<IActionResult> Login()
         {
             var value = new
             {
@@ -70,13 +73,20 @@ namespace BatteryCollectionViews.Controllers
                 Password = "12345678"
             };
             HttpResponseMessage response = await client.PostAsJsonAsync<LoginTeste>("api/token", login);
-            string json = response.Content.ReadAsStringAsync().Result;
-            RootObject root = JsonConvert.DeserializeObject<RootObject>(json);
-            User userReturned = root.user;
+            if (response.IsSuccessStatusCode)
+            {
+                string json = response.Content.ReadAsStringAsync().Result;
+                RootObject root = JsonConvert.DeserializeObject<RootObject>(json);
+                User userReturned = root.user;
+                Cookie.Set(userReturned.email + " " + userReturned.name, HttpContext);
+                Cookie.GetCookie(HttpContext);
+                return View();
+            }
 
+            return View();
+            
             //cookieManagement.Set("abc", "123");
             //User user = JsonDll.JsonConvert.DeserializeObject<User>(json);
-            return cookieManagement.GetCookie();
                 
 
             //if(response != null)
