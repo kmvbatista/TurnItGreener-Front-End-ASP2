@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace BatteryCollectionViews.Controllers
 {
-    public class PerfilController : BaseController
+    public class PerfilController : Controller
     {
         
         public IActionResult Index()
