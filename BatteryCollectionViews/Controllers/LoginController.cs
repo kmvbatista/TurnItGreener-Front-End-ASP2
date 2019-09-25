@@ -78,8 +78,8 @@ namespace BatteryCollectionViews.Controllers
                 string json = response.Content.ReadAsStringAsync().Result;
                 RootObject root = JsonConvert.DeserializeObject<RootObject>(json);
                 User userReturned = root.user;
-                Cookie.Set(userReturned.email + " " + userReturned.name, HttpContext);
-                Cookie.GetCookie(HttpContext);
+                //Cookie.Set(userReturned.email + " " + userReturned.name, HttpContext);
+                //Cookie.GetCookie(HttpContext);
                 return View();
             }
 

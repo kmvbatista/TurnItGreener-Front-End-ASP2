@@ -1,4 +1,98 @@
 
+const data = [
+    {
+        "id": 1,
+        "name": "joao",
+        "cpf": "14832124676",
+        "cep": null,
+        "state": null,
+        "city": null,
+        "street": "rua amaxonas",
+        "number": 0,
+        "email": "kennedy@gmail.com",
+        "celphoneNumber": "47993207702",
+        "password": "12345678",
+        "totalPoints": 300
+    },
+    {
+        "id": 3,
+        "name": "kennedy",
+        "cpf": "17832124676",
+        "cep": null,
+        "state": null,
+        "city": null,
+        "street": null,
+        "number": 0,
+        "email": "kennedymessias@gmail.com",
+        "celphoneNumber": "47996207702",
+        "password": "12345678",
+        "totalPoints": 700
+    },
+    {
+        "id": 4,
+        "name": "gabriel",
+        "cpf": "14832124686",
+        "cep": "89037010",
+        "state": "solteiro",
+        "city": "blumenau",
+        "street": "rua meu saco",
+        "number": 0,
+        "email": "gabrielromario13@gmail.com",
+        "celphoneNumber": "47993207702",
+        "password": "12345678",
+        "totalPoints": 750
+    },
+    {
+        "id": 5,
+        "name": "gabriel",
+        "cpf": "08566738977",
+        "cep": "89037010",
+        "state": "solteiro",
+        "city": "blumenau",
+        "street": "rua meu saco",
+        "number": 0,
+        "email": "gabrielromario13@gmail.com",
+        "celphoneNumber": "47993207702",
+        "password": "12345678",
+        "totalPoints": 500
+    },
+    {
+        "id": 6,
+        "name": "gabriel",
+        "cpf": "08566738977",
+        "cep": "89037010",
+        "state": "solteiro",
+        "city": "blumenau",
+        "street": "rua meu saco",
+        "number": 9,
+        "email": "gabrielromario13@gmail.com",
+        "celphoneNumber": "47993207702",
+        "password": "12345678",
+        "totalPoints": 900
+    },
+    {
+        "id": 7,
+        "name": "marcelo",
+        "cpf": "14832124676",
+        "cep": "89037010",
+        "state": "SC",
+        "city": "Blumenau",
+        "street": "Júlio Baumgarten",
+        "number": 333,
+        "email": "gabriel.rcosta57@gmail.com",
+        "celphoneNumber": "47991201020",
+        "password": "6542463",
+        "totalPoints": 1000
+    }
+]
+
+
+const getData = () => {
+    var points = []
+    points = data.map((user) => user.totalPoints)
+    return points;
+}
+
 // Set new default font family and font color to mimic Bootstrap's default styling
 Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#292b2c';
@@ -21,7 +115,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBackgroundColor: "rgba(2,117,216,1)",
       pointHitRadius: 50,
       pointBorderWidth: 2,
-      data: [10000, 30162, 26263, 18394, 18287, 28682, 31274],
+      data: getData(),
     }],
   },
   options: {
@@ -40,7 +134,7 @@ var myLineChart = new Chart(ctx, {
       yAxes: [{
         ticks: {
           min: 0,
-          max: 40000,
+          max: 1000,
           maxTicksLimit: 5
         },
         gridLines: {
