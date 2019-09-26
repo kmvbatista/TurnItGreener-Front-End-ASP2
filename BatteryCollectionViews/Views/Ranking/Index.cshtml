@@ -34,44 +34,44 @@
                     </tfoot>
                     <tbody>
                         <tr>
-                            <td>Tiger Nixon</td>
-                            <td>email@email.com</td>
-                            <td>342</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <td>Garrett Winters</td>
-                            <td>email@email.com</td>
-                            <td>243</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <td>Ashton Cox</td>
-                            <td>email@email.com</td>
-                            <td>543</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <td>Cedric Kelly</td>
-                            <td>email@email.com</td>
-                            <td>234</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <td>Airi Satou</td>
-                            <td>email@email.com</td>
-                            <td>534</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <td>Brielle Williamson</td>
-                            <td>email@email.com</td>
-                            <td>434</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <td>Herrod Chandler</td>
-                            <td>email@email.com</td>
-                            <td>235</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
-                            <td>Rhona Davidson</td>
-                            <td>email@email.com</td>
-                            <td>134</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>
@@ -124,7 +124,88 @@
 
     <script type="text/javascript">
 
-        $(document).ready(function () {
+        function GetJSON_Simple() {
+            var resp = [];
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("OnGetRankingLine", "Ranking")',
+                async: false,
+                contentType: "application/json",
+                success: function (data) {
+                    resp.push(data);
+                },
+                error: function (req, status, error) {
+                    // do something with error
+                    console.log("error");
+                    console.log(req);
+                    console.log(status);
+                    console.log(error);
+                    alert("error");
+                }
+            });
+
+            return resp;
+        }
+
+        var simpleData = GetJSON_Simple();
+
+        // Set new default font family and font color to mimic Bootstrap's default styling
+        Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+        Chart.defaults.global.defaultFontColor = '#292b2c';
+
+        // Area Chart Example
+        var ctx = document.getElementById("myAreaChart");
+        var myLineChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"],
+            datasets: [{
+              label: "Sessions",
+              lineTension: 0.3,
+              backgroundColor: "rgba(2,117,216,0.2)",
+              borderColor: "rgba(2,117,216,1)",
+              pointRadius: 5,
+              pointBackgroundColor: "rgba(2,117,216,1)",
+              pointBorderColor: "rgba(255,255,255,0.8)",
+              pointHoverRadius: 5,
+              pointHoverBackgroundColor: "rgba(2,117,216,1)",
+              pointHitRadius: 50,
+              pointBorderWidth: 2,
+              data: simpleData[0].myCount,
+            }],
+          },
+          options: {
+            scales: {
+              xAxes: [{
+                time: {
+                  unit: 'date'
+                },
+                gridLines: {
+                  display: false
+                },
+                ticks: {
+                  maxTicksLimit: 7
+                }
+              }],
+              yAxes: [{
+                ticks: {
+                  min: 0,
+                  max: 1000,
+                  maxTicksLimit: 5
+                },
+                gridLines: {
+                  color: "rgba(0, 0, 0, .125)",
+                }
+              }],
+            },
+            legend: {
+              display: false
+            }
+          }
+        });
+
+
+        @*$(document).ready(function () {
             $.ajax({
                 url: '@Url.Action("GetJsonData", "Ranking")',
                 contentType: "application/json; charset=utf-8",
@@ -138,6 +219,6 @@
                     alert('kkkk gg');
                 }
             });
-        });
+        });*@
     </script>
 }

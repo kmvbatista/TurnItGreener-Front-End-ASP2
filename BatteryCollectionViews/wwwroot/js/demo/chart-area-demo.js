@@ -83,6 +83,20 @@ const data = [
         "celphoneNumber": "47991201020",
         "password": "6542463",
         "totalPoints": 1000
+    },
+    {
+        "id": 7,
+        "name": "marcelo",
+        "cpf": "14832124676",
+        "cep": "89037010",
+        "state": "SC",
+        "city": "Blumenau",
+        "street": "Júlio Baumgarten",
+        "number": 333,
+        "email": "gabriel.rcosta57@gmail.com",
+        "celphoneNumber": "47991201020",
+        "password": "6542463",
+        "totalPoints": 673
     }
 ]
 
