@@ -82,18 +82,13 @@ namespace BatteryCollectionViews.Controllers
 
         public async Task<User> OnGetRankingLine()
         {
-            var value = new
-            {
-                email = "kennedy@gmail.com",
-                password = "12345678"
-            };
             var client = httpClient.CreateClient("turnItgreener");
-            LoginTeste login = new LoginTeste()
+            UserSend userSend = new UserSend()
             {
-                Email = "kennedy@gmail.com",
-                Password = "12345678"
+                //Id = Cookie.GetCookie.Id,
+                //Email = Cookie.GetCookie.Email
             };
-            HttpResponseMessage response = await client.PostAsJsonAsync<LoginTeste>("api/token", login);
+            HttpResponseMessage response = await client.PostAsJsonAsync<UserSend>("api/descartes", userSend);
             if (response.IsSuccessStatusCode)
             {
                 string json = response.Content.ReadAsStringAsync().Result;

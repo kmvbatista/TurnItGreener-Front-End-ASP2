@@ -23,7 +23,6 @@
 <body>
     <div id="map"></div>
     <script>
-
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 14,
@@ -35,10 +34,10 @@
                 draggable: false,
                 animation: google.maps.Animation.DROP,
                 position: { lat: -26.913908, lng: -49.069138 },
-                title: "Prefeitura"
+                title: "Prefeitura",
             });
 
-            marker1 = new google.maps.Marker({
+            marker = new google.maps.Marker({
                 map: map,
                 draggable: false,
                 animation: google.maps.Animation.DROP,
@@ -46,7 +45,7 @@
                 title: "Atacadão"
             });
 
-            marker2 = new google.maps.Marker({
+            marker = new google.maps.Marker({
                 map: map,
                 draggable: false,
                 animation: google.maps.Animation.DROP,
@@ -54,12 +53,60 @@
                 title: "Galegão"
             });
 
-            marker3 = new google.maps.Marker({
+            marker = new google.maps.Marker({
                 map: map,
                 draggable: false,
                 animation: google.maps.Animation.DROP,
                 position: { lat: -26.886647, lng: -49.099737 },
                 title: "Samae"
+            });
+
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: false,
+                animation: google.maps.Animation.DROP,
+                position: { lat: -26.904515, lng: -49.093287 },
+                title: "Cooper Vila Nova"
+            });
+
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: false,
+                animation: google.maps.Animation.DROP,
+                position: { lat: -26.944602, lng: -49.072959 },
+                title: "Cooper Garcia"
+            });
+
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: false,
+                animation: google.maps.Animation.DROP,
+                position: { lat: -26.910587, lng: -49.113752 },
+                title: "Cooper Água Verde"
+            });
+
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: false,
+                animation: google.maps.Animation.DROP,
+                position: { lat: -26.927833, lng: -49.120766 },
+                title: "Cooper Omino"
+            });
+
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: false,
+                animation: google.maps.Animation.DROP,
+                position: { lat: -26.862598, lng: -49.088911 },
+                title: "Cooper Mafisa"
+            });
+
+            marker = new google.maps.Marker({
+                map: map,
+                draggable: false,
+                animation: google.maps.Animation.DROP,
+                position: { lat: -26.962347, lng: -49.065795 },
+                title: "Cooper Glória"
             });
 
             var location = google.maps.event.addListener(map, "click", function (event) {

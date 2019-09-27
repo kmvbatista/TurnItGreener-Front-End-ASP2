@@ -1,0 +1,54 @@
+﻿
+@using (Html.BeginForm())
+{
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#">Início</a>
+        </li>
+        <li class="breadcrumb-item active">Meu Perfil</li>
+    </ol>
+
+    <!-- Area Chart Example-->
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-chart-area"></i>
+            Pontuação Semanal
+        </div>
+        <div class="card-body">
+            <canvas id="myAreaChart" width="100" height="30"></canvas>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar"></i>
+                    Pontuação Mensal
+                </div>
+                <div class="card-body">
+                    <canvas id="myBarChart" width="100" height="50"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-chart-pie"></i>
+                    Itens Mais Descartados
+                </div>
+                <div class="card-body">
+                    <canvas id="myPieChart" width="100" height="100"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-bar-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+}

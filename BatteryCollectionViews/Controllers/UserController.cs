@@ -22,12 +22,6 @@ namespace BatteryCollectionViews.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(UserViewModel userViewModel)
         {
-            var value = new
-            {
-                email = "kennedy@gmail.com",
-                password = "12345678"
-            };
-
             var client = httpClient.CreateClient("turnItgreener");
 
             HttpResponseMessage response = await client.PostAsJsonAsync<User>("/api/users", mapUser(userViewModel));
@@ -55,7 +49,6 @@ namespace BatteryCollectionViews.Controllers
             this.httpClient = httpClientFactory;
         }
         private readonly IHttpClientFactory httpClient;
-        private readonly ICookie cookieManagement;
 
 
 
