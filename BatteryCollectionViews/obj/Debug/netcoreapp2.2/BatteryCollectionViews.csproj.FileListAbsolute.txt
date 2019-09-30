@@ -210,7 +210,6 @@ C:\Users\Pichau\Desktop\TCC ENTRA21\TurnItGreener-Front-End-ASP2\BatteryCollecti
 C:\Users\Pichau\Desktop\TCC ENTRA21\TurnItGreener-Front-End-ASP2\BatteryCollectionViews\obj\Debug\netcoreapp2.2\BatteryCollectionViews.RazorCoreGenerate.cache
 C:\Users\Pichau\Desktop\TCC ENTRA21\TurnItGreener-Front-End-ASP2\BatteryCollectionViews\obj\Debug\netcoreapp2.2\Razor\Views\Login\Index.g.cshtml.cs
 C:\Users\Pichau\Desktop\TCC ENTRA21\TurnItGreener-Front-End-ASP2\BatteryCollectionViews\obj\Debug\netcoreapp2.2\Razor\Views\Map\Index.g.cshtml.cs
-C:\Users\Pichau\Desktop\TCC ENTRA21\TurnItGreener-Front-End-ASP2\BatteryCollectionViews\obj\Debug\netcoreapp2.2\Razor\Views\Perfil\Index.g.cshtml.cs
 C:\Users\Pichau\Desktop\TCC ENTRA21\TurnItGreener-Front-End-ASP2\BatteryCollectionViews\obj\Debug\netcoreapp2.2\Razor\Views\Ranking\Index.g.cshtml.cs
 C:\Users\Pichau\Desktop\TCC ENTRA21\TurnItGreener-Front-End-ASP2\BatteryCollectionViews\obj\Debug\netcoreapp2.2\Razor\Views\Shared\Error.g.cshtml.cs
 C:\Users\Pichau\Desktop\TCC ENTRA21\TurnItGreener-Front-End-ASP2\BatteryCollectionViews\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
@@ -262,3 +261,4 @@ C:\Users\moc\Desktop\ASP 2\TurnItGreener-Front-End-ASP2\BatteryCollectionViews\o
 C:\Users\moc\Desktop\ASP 2\TurnItGreener-Front-End-ASP2\BatteryCollectionViews\obj\Debug\netcoreapp2.2\BatteryCollectionViews.pdb
 C:\Users\moc\Desktop\ASP 2\TurnItGreener-Front-End-ASP2\BatteryCollectionViews\obj\Debug\netcoreapp2.2\BatteryCollectionViews.csproj.CopyComplete
 C:\Users\moc\Desktop\ASP 2\TurnItGreener-Front-End-ASP2\BatteryCollectionViews\obj\Debug\netcoreapp2.2\Razor\Views\Profile\Index.g.cshtml.cs
+C:\Users\Pichau\Desktop\TCC ENTRA21\TurnItGreener-Front-End-ASP2\BatteryCollectionViews\obj\Debug\netcoreapp2.2\Razor\Views\Profile\Index.g.cshtml.cs
