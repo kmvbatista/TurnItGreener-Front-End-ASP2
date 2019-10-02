@@ -50,7 +50,7 @@ namespace BatteryCollectionViews
             services.AddHttpClient();
             services.AddHttpClient("turnItgreener", c =>
             {
-                c.BaseAddress = new Uri("http://batterycollector.azurewebsites.net");
+                c.BaseAddress = new Uri("http://localhost:55135");
                 c.DefaultRequestHeaders
                           .Accept
                           .Add(new MediaTypeWithQualityHeaderValue("application/json"));

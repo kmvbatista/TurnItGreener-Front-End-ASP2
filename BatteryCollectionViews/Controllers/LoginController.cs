@@ -9,6 +9,7 @@ using BatteryCollectionViews.Cookies;
 using JsonDll = Newtonsoft.Json;
 using BatteryCollectionViews.Models.HttpResponse;
 using Microsoft.AspNetCore.Http;
+using System.Net.Http.Headers;
 
 namespace BatteryCollectionViews.Controllers
 {
@@ -22,9 +23,36 @@ namespace BatteryCollectionViews.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(LoginViewModel model)
+        public async Task<IActionResult> Index(LoginViewModel model)
         {
+            var client = httpClient.CreateClient("turnItgreener");
+          
+
+            User user = new User()
+            {
+                email = model.Email,
+                password = model.Password
+            };
+
+            HttpResponseMessage response = await client.PostAsJsonAsync<User>("api/token", user);
+            if (response.IsSuccessStatusCode)
+            {
+                string json = response.Content.ReadAsStringAsync().Result;
+
+                RootObject root = JsonConvert.DeserializeObject<RootObject>(json);
+                Cookie.Set(root.token.value.token, this.HttpContext);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.Erro = "Usuário e/ou senha inválidos.";
+            }
             return View();
+        }
+
+        public async Task<string> ReturnTokenCookieValue()
+        {
+            return Cookie.GetCookie(this.HttpContext);
         }
 
         public LoginController(IHttpClientFactory httpClientFactory)
@@ -53,7 +81,7 @@ namespace BatteryCollectionViews.Controllers
         {
             //{“nome” : “Bill”, “idade” : 32, “salario”: 121232.67}
 
-            var obj = new {email = "kennedy@gmail.com", password = "12345678"};
+            var obj = new { email = "kennedy@gmail.com", password = "12345678" };
 
             return JsonConvert.SerializeObject(obj);
         }

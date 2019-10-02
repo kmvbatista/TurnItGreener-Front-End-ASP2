@@ -44,11 +44,308 @@
             </div>
         </div>
     </div>
+
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-fw fa-chart-bar"></i>
+            Características Gerais
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
+                    <tbody>
+                        <tr class="classtr">
+                            <td>Lugar mais visitado</td>
+                            <td id="mostVisited"></td>
+                        </tr>
+                        <tr class="classtr">
+                            <td>Objeto mais descartado</td>
+                            <td id="mostDiscarted"></td>
+                        </tr>
+                        <tr class="classtr">
+                            <td>Pontuação total</td>
+                            <td id="totalPoints"></td>
+                        </tr>
+                        <tr class="classtr">
+                            <td>Mês com mais descartes</td>
+                            <td id="mostDiscartedMonth"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 }
 
 @section Scripts {
     <script src="vendor/chart.js/Chart.min.js"></script>
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-bar-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+
+    <script type="text/javascript">
+
+        @*function GetJSON_Simple() {
+            var resp = [];
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("OnGetRankingLine", "Profile")',
+                async: false,
+                contentType: "application/json",
+                success: function (data) {
+                    resp.push(data);
+                },
+                error: function (req, status, error) {
+                    // do something with error
+                    console.log("error");
+                    console.log(req);
+                    console.log(status);
+                    console.log(error);
+                    alert("error");
+                }
+            });
+
+            return resp;
+        }*@
+
+        var simpleData = {
+            "alldiscards": {
+                "weekPoints": [
+                    4,
+                    0,
+                    0,
+                    7
+                ]
+            }
+        }
+
+        // Set new default font family and font color to mimic Bootstrap's default styling
+        Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+        Chart.defaults.global.defaultFontColor = '#292b2c';
+
+        // Area Chart Example
+        var ctx = document.getElementById("myAreaChart");
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+            labels: ["Semana 1", "Semana 2", "Semana 3", "Semana 4"],
+            datasets: [{
+                label: "Sessions",
+                lineTension: 0.3,
+                backgroundColor: "rgba(2,117,216,0.2)",
+                borderColor: "rgba(2,117,216,1)",
+                pointRadius: 5,
+                pointBackgroundColor: "rgba(2,117,216,1)",
+                pointBorderColor: "rgba(255,255,255,0.8)",
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: "rgba(2,117,216,1)",
+                pointHitRadius: 50,
+                pointBorderWidth: 2,
+                data: simpleData.alldiscards.weekPoints,
+            }],
+            },
+            options: {
+            scales: {
+                xAxes: [{
+                time: {
+                    unit: 'date'
+                },
+                gridLines: {
+                    display: false
+                },
+                ticks: {
+                    maxTicksLimit: 7
+                }
+                }],
+                yAxes: [{
+                ticks: {
+                    min: 0,
+                    max: 7,
+                    maxTicksLimit: 5
+                },
+                gridLines: {
+                    color: "rgba(0, 0, 0, .125)",
+                }
+                }],
+            },
+            legend: {
+                display: false
+            }
+            }
+        });
+
+        //---------------------------------------------------------------- //
+
+        @*function GetJSON_Simple1() {
+            var resp1 = [];
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("OnGetRankingBar", "Profile")',
+                async: false,
+                contentType: "application/json",
+                success: function (data) {
+                    resp1.push(data);
+                },
+                error: function (req, status, error) {
+                    // do something with error
+                    console.log("error");
+                    console.log(req);
+                    console.log(status);
+                    console.log(error);
+                    alert("error");
+                }
+            });
+
+            return resp1;
+        }*@
+
+        var simpleData1 = {
+                "alldiscards": {
+                    "yearPoints": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        2,
+                        9,
+                        0,
+                        0
+                    ]
+                }
+            }
+
+        // Set new default font family and font color to mimic Bootstrap's default styling
+        Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+        Chart.defaults.global.defaultFontColor = '#292b2c';
+
+        // Bar Chart Example
+        var ctx = document.getElementById("myBarChart");
+        var myLineChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+            labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+            datasets: [{
+                label: "Pontos",
+                backgroundColor: "rgba(2,117,216,1)",
+                borderColor: "rgba(2,117,216,1)",
+                data: simpleData1.alldiscards.yearPoints,
+            }],
+            },
+            options: {
+            scales: {
+                xAxes: [{
+                time: {
+                    unit: 'month'
+                },
+                gridLines: {
+                    display: false
+                },
+                ticks: {
+                    maxTicksLimit: 6
+                }
+                }],
+                yAxes: [{
+                ticks: {
+                    min: 0,
+                    max: 30,
+                    maxTicksLimit: 5
+                },
+                gridLines: {
+                    display: true
+                }
+                }],
+            },
+            legend: {
+                display: false
+            }
+            }
+        });
+
+        // --------------------------------------------------------- //
+
+        @*function GetJSON_Simple2() {
+            var resp2 = [];
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("OnGetRankingPie", "Profile")',
+                async: false,
+                contentType: "application/json",
+                success: function (data) {
+                    resp2.push(data);
+                },
+                error: function (req, status, error) {
+                    debugger;
+                    // do something with error
+                    alert("error");
+                }
+            });
+
+            return resp2;
+        }*@
+
+        var simpleData2 = {
+            "materialsDiscarded": [
+                {
+                    "key": "Bateria",
+                    "value": 5
+                },
+                {
+                    "key": "Óleo",
+                    "value": 3
+                },
+                {
+                    "key": "Pilha",
+                    "value": 3
+                }
+            ]
+        }
+
+        // Set new default font family and font color to mimic Bootstrap's default styling
+        Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+        Chart.defaults.global.defaultFontColor = '#292b2c';
+
+        // Pie Chart Example
+        var ctx = document.getElementById("myPieChart");
+        var myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+            labels: ["Bateria", "Pilha", "Óleo"],
+                datasets: [{
+                    data: simpleData2.materialsDiscarded,
+                backgroundColor: ['#007bff', '#dc3545', '#ffc107'],
+            }],
+            },
+        });
+
+        function GetJson() {
+            var resp1 = [];
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("OnGetRankingMostDiscarded", "Profile")',
+                async: false,
+                contentType: "application/json",
+                success: function (data) {
+                    resp1.push(data);
+                },
+                error: function (req, status, error) {
+                    alert("error");
+                }
+            });
+
+            return resp1;
+        }
+
+        var kk = GetJson();
+
+        $(document).ready(function () {
+
+            document.getElementById("mostVisited").innerText = kk[0].mostVisited;
+            document.getElementById("mostDiscarted").innerText = kk[0].mostDiscarded;
+            document.getElementById("totalPoints").innerText = kk[0].totalPoints;
+            document.getElementById("mostDiscartedMonth").innerText = kk[0].mostDiscartedMonth;
+
+        });
+
+    </script>
 }

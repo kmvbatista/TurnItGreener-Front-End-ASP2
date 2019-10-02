@@ -20,16 +20,16 @@ namespace BatteryCollectionViews.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(UserViewModel userViewModel)
+        public async Task<User> Create(UserViewModel userViewModel)
         {
             var client = httpClient.CreateClient("turnItgreener");
 
-            HttpResponseMessage response = await client.PostAsJsonAsync<User>("/api/users", mapUser(userViewModel));
+            HttpResponseMessage response = await client.PostAsJsonAsync<User>("api/discards/all", mapUser(userViewModel));
             string json = response.Content.ReadAsStringAsync().Result;
             RootObject root = JsonConvert.DeserializeObject<RootObject>(json);
             User userReturned = root.user;
 
-            return Accepted();
+            return userReturned;
         }
 
         private User mapUser(UserViewModel userViewModel)
