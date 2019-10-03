@@ -4,7 +4,7 @@
     <!-- Breadcrumbs-->
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="#">Início</a>
+            <a asp-action="index" asp-controller="principalhome">Início</a>
         </li>
         <li class="breadcrumb-item active">Meu Perfil</li>
     </ol>
@@ -55,20 +55,20 @@
                 <table class="table table-bordered" id="dataTable1" width="100%" cellspacing="0">
                     <tbody>
                         <tr class="classtr">
-                            <td>Lugar mais visitado</td>
+                            <th>Lugar mais visitado</th>
+                            <th>Objeto mais descartado</th>
+                            <th>Pontuação total</th>
+                            <th>Mês com mais descartes</th>
+                        </tr>
+                        <tr class="classtr">
                             <td id="mostVisited"></td>
-                        </tr>
-                        <tr class="classtr">
-                            <td>Objeto mais descartado</td>
                             <td id="mostDiscarted"></td>
-                        </tr>
-                        <tr class="classtr">
-                            <td>Pontuação total</td>
                             <td id="totalPoints"></td>
+                            <td id="mostDiscardedMonth"></td>
                         </tr>
                         <tr class="classtr">
-                            <td>Mês com mais descartes</td>
-                            <td id="mostDiscartedMonth"></td>
+                        </tr>
+                        <tr class="classtr">
                         </tr>
                     </tbody>
                 </table>
@@ -284,20 +284,25 @@
             return resp2;
         }*@
 
-        var simpleData2 = {
+        var simpleData22 = {
             "materialsDiscarded": [
                 {
-                    "key": "Bateria",
                     "value": 5
                 },
                 {
-                    "key": "Óleo",
                     "value": 3
                 },
                 {
-                    "key": "Pilha",
                     "value": 3
                 }
+            ]
+        }
+
+        var simpleData2 = {
+            "materialsDiscarded": [
+                5,
+                3,
+                3
             ]
         }
 
@@ -310,13 +315,15 @@
         var myPieChart = new Chart(ctx, {
             type: 'pie',
             data: {
-            labels: ["Bateria", "Pilha", "Óleo"],
+                labels: ["Bateria", "Pilha", "Óleo"],
                 datasets: [{
                     data: simpleData2.materialsDiscarded,
-                backgroundColor: ['#007bff', '#dc3545', '#ffc107'],
-            }],
+                    backgroundColor: ['#007bff', '#dc3545', '#ffc107'],
+                }],
             },
         });
+
+        // ------------------------------------------------------------ //
 
         function GetJson() {
             var resp1 = [];
@@ -336,14 +343,21 @@
             return resp1;
         }
 
-        var kk = GetJson();
+        var simpleData3 = {
+            "generalData": {
+                "mostVisited": "Furb Campus 2",
+                "mostDiscarded": "Bateria",
+                "totalPoints": 19,
+                "mostDiscardedMonth": 10
+            }
+        }
 
         $(document).ready(function () {
 
-            document.getElementById("mostVisited").innerText = kk[0].mostVisited;
-            document.getElementById("mostDiscarted").innerText = kk[0].mostDiscarded;
-            document.getElementById("totalPoints").innerText = kk[0].totalPoints;
-            document.getElementById("mostDiscartedMonth").innerText = kk[0].mostDiscartedMonth;
+            document.getElementById("mostVisited").innerText = simpleData3.generalData.mostVisited;
+            document.getElementById("mostDiscarted").innerText = simpleData3.generalData.mostDiscarded;
+            document.getElementById("totalPoints").innerText = simpleData3.generalData.totalPoints;
+            document.getElementById("mostDiscardedMonth").innerText = simpleData3.generalData.mostDiscardedMonth;
 
         });
 

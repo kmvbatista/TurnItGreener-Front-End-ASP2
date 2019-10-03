@@ -1,0 +1,109 @@
+﻿
+@using (Html.BeginForm())
+{
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a asp-action="index" asp-controller="principalhome">Início</a>
+        </li>
+        <li class="breadcrumb-item active">Ranking</li>
+    </ol>
+
+    <!-- DataTables Example -->
+    <div class="card mb-3">
+        <div class="card-header">
+            <i class="fas fa-fw fa-chart-bar"></i>
+            Ranking de Blumenau
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr class="user">
+                            <th>Nome</th>
+                            <th>Pontos</th>
+                        </tr>
+                    </thead>
+                    <tbody id="user-table">
+                        <tr>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Pontos</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script>
+        @*function GetJson() {
+            var resp1 = [];
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("OnGetRankingTable", "Ranking")',
+                async: false,
+                contentType: "application/json",
+                success: function (data) {
+                    resp1.push(data);
+                },
+                error: function (req, status, error) {
+                    alert("error");
+                }
+            });
+
+            return resp1;
+        }*@
+
+        //var simpleData3 = GetJson();
+
+        var simpleData3 = [
+            {
+                "name": "A",
+                "points": 19
+            },
+            {
+                "name": "Gabriel romario",
+                "points": 5
+            },
+            {
+                "name": "Carlos",
+                "points": 3
+            }
+        ]
+
+        $(document).ready(function () {
+
+            createTable(simpleData3);
+    
+        });
+
+        function createTable(simpleData3) {
+
+            var len = simpleData3.length;
+            var tbl = document.getElementById("dataTable");
+
+            for (var r = 0; r < len; r++) {
+                var row = document.createElement("tr");
+
+                // create cells in row
+                var cell = document.createElement("td");
+                var cellText = document.createTextNode(simpleData3[r].name);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+
+                var cell = document.createElement("td");
+                var cellText = document.createTextNode(simpleData3[r].points);
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+
+                tbl.appendChild(row); // add the row to the end of the table body
+            }
+        }
+    </script>
+}

@@ -27,7 +27,6 @@ namespace BatteryCollectionViews.Controllers
         {
             var client = httpClient.CreateClient("turnItgreener");
           
-
             User user = new User()
             {
                 email = model.Email,
@@ -41,7 +40,7 @@ namespace BatteryCollectionViews.Controllers
 
                 RootObject root = JsonConvert.DeserializeObject<RootObject>(json);
                 Cookie.Set(root.token.value.token, this.HttpContext);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "PrincipalHome");
             }
             else
             {
@@ -50,40 +49,11 @@ namespace BatteryCollectionViews.Controllers
             return View();
         }
 
-        public async Task<string> ReturnTokenCookieValue()
-        {
-            return Cookie.GetCookie(this.HttpContext);
-        }
-
         public LoginController(IHttpClientFactory httpClientFactory)
         {
             this.httpClient = httpClientFactory;
 
         }
         private readonly IHttpClientFactory httpClient;
-
-        [HttpPost]
-        public async Task<IActionResult> Login(UserViewModel userViewModel)
-        {
-            var client = httpClient.CreateClient("turnItgreener");
-
-            Cookie.Set(userViewModel.Email, this.HttpContext);
-
-            return View();
-        }
-
-        private User mapUser(UserViewModel userViewModel)
-        {
-            return new User { email = userViewModel.Email, password = userViewModel.Password };
-        }
-
-        public string retornaObjetoJSON()
-        {
-            //{“nome” : “Bill”, “idade” : 32, “salario”: 121232.67}
-
-            var obj = new { email = "kennedy@gmail.com", password = "12345678" };
-
-            return JsonConvert.SerializeObject(obj);
-        }
     }
 }
