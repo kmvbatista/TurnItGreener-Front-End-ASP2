@@ -16,7 +16,7 @@ namespace BatteryCollectionViews.Cookies
         {
             var options = new CookieOptions()
             {
-                Expires = DateTime.Now.AddMinutes(30),
+                Expires = DateTime.Now.AddDays(30),
                 HttpOnly = true,
             };
             context.Response.Cookies.Append(CookieName, value, options);

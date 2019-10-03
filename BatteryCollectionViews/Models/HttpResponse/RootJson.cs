@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace BatteryCollectionViews.Models.HttpResponse
 {
-    public class RootObject
+    public class RootJson
     {
-        public Token token { get; set; }
-        public User userToSend { get; set; }
+        public string Name { get; set; }
+        public int Points { get; set; }
     }
 }

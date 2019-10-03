@@ -28,12 +28,6 @@
                         <tr>
                         </tr>
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Pontos</th>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>
@@ -42,45 +36,32 @@
 
 @section Scripts {
     <script>
-        @*function GetJson() {
-            var resp1 = [];
+        function GetJson() {
+            var resp = [];
             $.ajax({
                 type: "GET",
                 url: '@Url.Action("OnGetRankingTable", "Ranking")',
                 async: false,
                 contentType: "application/json",
                 success: function (data) {
-                    resp1.push(data);
+                    resp.push(data);
                 },
                 error: function (req, status, error) {
+                    // do something with error
                     alert("error");
                 }
             });
 
-            return resp1;
-        }*@
+            return resp;
+        }
 
-        //var simpleData3 = GetJson();
-
-        var simpleData3 = [
-            {
-                "name": "A",
-                "points": 19
-            },
-            {
-                "name": "Gabriel romario",
-                "points": 5
-            },
-            {
-                "name": "Carlos",
-                "points": 3
-            }
-        ]
+        var simpleData3 = GetJson();
+        console.log(simpleData3[0]);
 
         $(document).ready(function () {
 
-            createTable(simpleData3);
-    
+            createTable(simpleData3[0]);
+
         });
 
         function createTable(simpleData3) {

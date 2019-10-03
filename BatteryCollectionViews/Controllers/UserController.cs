@@ -20,16 +20,19 @@ namespace BatteryCollectionViews.Controllers
         }
 
         [HttpPost]
-        public async Task<User> Create(UserViewModel userViewModel)
+        public async Task<IActionResult> Create(UserViewModel userViewModel)
         {
             var client = httpClient.CreateClient("turnItgreener");
 
             HttpResponseMessage response = await client.PostAsJsonAsync<User>("api/users", mapUser(userViewModel));
-            string json = response.Content.ReadAsStringAsync().Result;
-            RootObject root = JsonConvert.DeserializeObject<RootObject>(json);
-            User userReturned = root.user;
-
-            return userReturned;
+            if (response.IsSuccessStatusCode)
+            {
+                string json = response.Content.ReadAsStringAsync().Result;
+                RootObject root = JsonConvert.DeserializeObject<RootObject>(json);
+                Cookie.Set(root.token.value.token, this.HttpContext);
+                return RedirectToAction("Index", "Login");
+            }
+            return null;
         }
 
         private User mapUser(UserViewModel userViewModel)

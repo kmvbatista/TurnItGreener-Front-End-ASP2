@@ -27,18 +27,19 @@ namespace BatteryCollectionViews.Controllers
         }
         private readonly IHttpClientFactory httpClient;
 
-        public async Task<Object> OnGetRankingTable()
+        public async Task<List<RootJson>> OnGetRankingTable()
         {
             var client = httpClient.CreateClient("turnItgreener");
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Cookie.GetCookie(this.HttpContext));
+            var cookie = Cookie.GetCookie(this.HttpContext);
+            RootObject rootObject = JsonConvert.DeserializeObject<RootObject>(cookie);
 
             HttpResponseMessage response = await client.GetAsync("api/users/ranking");
             if (response.IsSuccessStatusCode)
             {
                 string json = response.Content.ReadAsStringAsync().Result;
-                RootArray root = JsonConvert.DeserializeObject<RootArray>(json);
-                var userReturned = root.alldiscards.weekPoints;
-                return userReturned;
+
+                List<RootJson> rootJson = JsonConvert.DeserializeObject<List<RootJson>>(json);
+                return rootJson;
             }
             return null;
         }

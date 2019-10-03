@@ -299,3 +299,5 @@ C:\Users\Pichau\Desktop\Entra21TCC\TurnItGreener-Front-End-ASP2\BatteryCollectio
 C:\Users\Pichau\Desktop\Entra21TCC\TurnItGreener-Front-End-ASP2\BatteryCollectionViews\obj\Debug\netcoreapp2.2\BatteryCollectionViews.csproj.CopyComplete
 C:\Users\Pichau\Desktop\Entra21TCC\TurnItGreener-Front-End-ASP2\BatteryCollectionViews\obj\Debug\netcoreapp2.2\Razor\Views\PrincipalHome\Index.g.cshtml.cs
 C:\Users\Pichau\Desktop\Entra21TCC\TurnItGreener-Front-End-ASP2\BatteryCollectionViews\obj\Debug\netcoreapp2.2\Razor\Views\PrincipalRanking\Index.g.cshtml.cs
+C:\Users\moc\Desktop\ASP 2\TurnItGreener-Front-End-ASP2\BatteryCollectionViews\obj\Debug\netcoreapp2.2\Razor\Views\PrincipalHome\Index.g.cshtml.cs
+C:\Users\moc\Desktop\ASP 2\TurnItGreener-Front-End-ASP2\BatteryCollectionViews\obj\Debug\netcoreapp2.2\Razor\Views\PrincipalRanking\Index.g.cshtml.cs

@@ -39,7 +39,7 @@ namespace BatteryCollectionViews.Controllers
                 string json = response.Content.ReadAsStringAsync().Result;
 
                 RootObject root = JsonConvert.DeserializeObject<RootObject>(json);
-                Cookie.Set(root.token.value.token, this.HttpContext);
+                Cookie.Set(json, this.HttpContext);
                 return RedirectToAction("Index", "PrincipalHome");
             }
             else

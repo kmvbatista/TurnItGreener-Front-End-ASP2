@@ -82,7 +82,7 @@
 
     <script type="text/javascript">
 
-        @*function GetJSON_Simple() {
+        function GetJson() {
             var resp = [];
             $.ajax({
                 type: "GET",
@@ -103,18 +103,11 @@
             });
 
             return resp;
-        }*@
-
-        var simpleData = {
-            "alldiscards": {
-                "weekPoints": [
-                    4,
-                    0,
-                    0,
-                    7
-                ]
-            }
         }
+
+        var alldata = GetJson();
+
+        var simpleData = alldata[0].alldiscards.weekPoints;
 
         // Set new default font family and font color to mimic Bootstrap's default styling
         Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
@@ -138,7 +131,7 @@
                 pointHoverBackgroundColor: "rgba(2,117,216,1)",
                 pointHitRadius: 50,
                 pointBorderWidth: 2,
-                data: simpleData.alldiscards.weekPoints,
+                data: simpleData,
             }],
             },
             options: {
@@ -171,50 +164,8 @@
             }
         });
 
-        //---------------------------------------------------------------- //
-
-        @*function GetJSON_Simple1() {
-            var resp1 = [];
-            $.ajax({
-                type: "GET",
-                url: '@Url.Action("OnGetRankingBar", "Profile")',
-                async: false,
-                contentType: "application/json",
-                success: function (data) {
-                    resp1.push(data);
-                },
-                error: function (req, status, error) {
-                    // do something with error
-                    console.log("error");
-                    console.log(req);
-                    console.log(status);
-                    console.log(error);
-                    alert("error");
-                }
-            });
-
-            return resp1;
-        }*@
-
-        var simpleData1 = {
-                "alldiscards": {
-                    "yearPoints": [
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        0,
-                        2,
-                        9,
-                        0,
-                        0
-                    ]
-                }
-            }
-
+        var simpleData1 = alldata[0].alldiscards.yearPoints;
+        
         // Set new default font family and font color to mimic Bootstrap's default styling
         Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
         Chart.defaults.global.defaultFontColor = '#292b2c';
@@ -229,7 +180,7 @@
                 label: "Pontos",
                 backgroundColor: "rgba(2,117,216,1)",
                 borderColor: "rgba(2,117,216,1)",
-                data: simpleData1.alldiscards.yearPoints,
+                data: simpleData1,
             }],
             },
             options: {
@@ -264,47 +215,7 @@
 
         // --------------------------------------------------------- //
 
-        @*function GetJSON_Simple2() {
-            var resp2 = [];
-            $.ajax({
-                type: "GET",
-                url: '@Url.Action("OnGetRankingPie", "Profile")',
-                async: false,
-                contentType: "application/json",
-                success: function (data) {
-                    resp2.push(data);
-                },
-                error: function (req, status, error) {
-                    debugger;
-                    // do something with error
-                    alert("error");
-                }
-            });
-
-            return resp2;
-        }*@
-
-        var simpleData22 = {
-            "materialsDiscarded": [
-                {
-                    "value": 5
-                },
-                {
-                    "value": 3
-                },
-                {
-                    "value": 3
-                }
-            ]
-        }
-
-        var simpleData2 = {
-            "materialsDiscarded": [
-                5,
-                3,
-                3
-            ]
-        }
+        let simpleData2 = alldata[0].materialsDiscarded.map(el => el.value);
 
         // Set new default font family and font color to mimic Bootstrap's default styling
         Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
@@ -317,7 +228,7 @@
             data: {
                 labels: ["Bateria", "Pilha", "Óleo"],
                 datasets: [{
-                    data: simpleData2.materialsDiscarded,
+                    data: simpleData2,
                     backgroundColor: ['#007bff', '#dc3545', '#ffc107'],
                 }],
             },
@@ -325,40 +236,11 @@
 
         // ------------------------------------------------------------ //
 
-        function GetJson() {
-            var resp1 = [];
-            $.ajax({
-                type: "GET",
-                url: '@Url.Action("OnGetRankingMostDiscarded", "Profile")',
-                async: false,
-                contentType: "application/json",
-                success: function (data) {
-                    resp1.push(data);
-                },
-                error: function (req, status, error) {
-                    alert("error");
-                }
-            });
-
-            return resp1;
-        }
-
-        var simpleData3 = {
-            "generalData": {
-                "mostVisited": "Furb Campus 2",
-                "mostDiscarded": "Bateria",
-                "totalPoints": 19,
-                "mostDiscardedMonth": 10
-            }
-        }
-
         $(document).ready(function () {
-
-            document.getElementById("mostVisited").innerText = simpleData3.generalData.mostVisited;
-            document.getElementById("mostDiscarted").innerText = simpleData3.generalData.mostDiscarded;
-            document.getElementById("totalPoints").innerText = simpleData3.generalData.totalPoints;
-            document.getElementById("mostDiscardedMonth").innerText = simpleData3.generalData.mostDiscardedMonth;
-
+            document.getElementById("mostVisited").innerText = alldata[0].generalData.mostVisited;
+            document.getElementById("mostDiscarted").innerText = alldata[0].generalData.mostDiscarded;
+            document.getElementById("totalPoints").innerText = alldata[0].generalData.totalPoints;
+            document.getElementById("mostDiscardedMonth").innerText = alldata[0].generalData.mostDiscardedMonth;
         });
 
     </script>
