@@ -44,7 +44,7 @@ namespace BatteryCollectionViews.Controllers
             }
             else
             {
-                ViewBag.Erro = "Usuário e/ou senha inválidos.";
+                ViewBag.Errors = "Usuário e/ou senha inválidos.";
             }
             return View();
         }

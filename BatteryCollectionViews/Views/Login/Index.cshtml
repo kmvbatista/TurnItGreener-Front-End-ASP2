@@ -41,6 +41,12 @@
                         </div>
                     </div>
                     <input id="button" type="submit" value="Entrar" class="btn btn-dark btn-block" />
+                    @if (ViewBag.Errors != null)
+                    {
+                        <p style="color:red; padding-top: 2%;">
+                            @ViewBag.Errors
+                        </p>
+                    }
                     <style>
                         form input {
                             height: 45px;
