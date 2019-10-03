@@ -26,31 +26,10 @@ namespace BatteryCollectionViews.Controllers
             return View();
         }
 
-        public AccountController(IHttpClientFactory httpClientFactory)
+        public IActionResult Logout()
         {
-            this.httpClient = httpClientFactory;
-
-        }
-        private readonly IHttpClientFactory httpClient;
-
-        public async Task<Object> OnGetRankingBar()
-        {
-            var client = httpClient.CreateClient("turnItgreener");
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Cookie.GetCookie(this.HttpContext));
-            UserSend userSend = new UserSend()
-            {
-                Id = 3
-
-            };
-            HttpResponseMessage response = await client.PostAsJsonAsync<UserSend>("api/discards/all", userSend);
-            if (response.IsSuccessStatusCode)
-            {
-                string json = response.Content.ReadAsStringAsync().Result;
-                RootArray root = JsonConvert.DeserializeObject<RootArray>(json);
-                var userReturned = root.alldiscards.weekPoints;
-                return userReturned;
-            }
-            return null;
+            Cookie.Set("", this.HttpContext);
+            return RedirectToAction("Index", "Login");
         }
     }
 }

@@ -13,7 +13,7 @@ using Newtonsoft.Json;
 
 namespace BatteryCollectionViews.Controllers
 {
-    public class ProfileController : Controller
+    public class ProfileController : BaseController
     {
         
         public IActionResult Index()
@@ -24,13 +24,8 @@ namespace BatteryCollectionViews.Controllers
         [HttpPost]
         public IActionResult Index(string a1, int a2 = 0)
         {
-            //CustomModelBinder
-            //string valçor = Request.Form["a1"];
             return View();
         }
-        //<form>
-        //<input type='text' name='a1' />
-        //</form>
 
         public ProfileController(IHttpClientFactory httpClientFactory)
         {
@@ -84,8 +79,7 @@ namespace BatteryCollectionViews.Controllers
             var client = httpClient.CreateClient("turnItgreener");
             UserSend userSend = new UserSend()
             {
-                //Id = Cookie.GetCookie.Id,
-                //Email = Cookie.GetCookie.Email
+                Id = 3
             };
             HttpResponseMessage response = await client.PostAsJsonAsync<UserSend>("api/descards/all", userSend);
             if (response.IsSuccessStatusCode)
