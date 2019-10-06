@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BatteryCollectionViews.Controllers
 {
-    public class PrincipalRankingController : Controller
+    public class PrincipalRankingController : BaseController
     {
         [HttpGet]
         public IActionResult Index()
