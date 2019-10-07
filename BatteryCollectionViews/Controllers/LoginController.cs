@@ -33,7 +33,7 @@ namespace BatteryCollectionViews.Controllers
                 password = model.Password
             };
 
-            HttpResponseMessage response = await client.PostAsJsonAsync<User>("api/token", user);
+            HttpResponseMessage response = await client.PostAsJsonAsync<User>("api/login", user);
             if (response.IsSuccessStatusCode)
             {
                 string json = response.Content.ReadAsStringAsync().Result;

@@ -28,8 +28,9 @@ namespace BatteryCollectionViews.Controllers
             if (response.IsSuccessStatusCode)
             {
                 string json = response.Content.ReadAsStringAsync().Result;
+
                 RootObject root = JsonConvert.DeserializeObject<RootObject>(json);
-                Cookie.Set(root.token.value.token, this.HttpContext);
+                Cookie.Set(json, this.HttpContext);
                 return RedirectToAction("Index", "Login");
             }
             return null;
